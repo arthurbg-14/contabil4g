@@ -19,6 +19,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header/>
         {children}
+        <button id="wppButton"className="fixed bottom-[1.5rem] right-[1.5rem] w-[3.5rem] h-[3.5rem] rounded-full bg-lime-500
+            hover:transform-gpu hover:scale-[1.3] transition-transform p-2 text-end">
+          <img src="/whatsapp.svg" alt="Whatsapp" />
+        </button>
       </body>
     </html>
   )

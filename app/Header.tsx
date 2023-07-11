@@ -26,7 +26,7 @@ const Header = () => {
 		<div className="flex flex-row h-full">
 			<HeaderButton href="/">HOME</HeaderButton>
 			<HeaderButton href="/empresa">EMPRESA</HeaderButton>
-			<HeaderButton href="/servicos">SERVIÇOS</HeaderButton>
+				<HeaderButton href="/servicos">SERVIÇOS</HeaderButton>
 			<HeaderButton href="/planos">PLANOS</HeaderButton>
 		</div>
 		<Button>ÁREA DO CLIENTE</Button>
