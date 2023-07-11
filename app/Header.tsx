@@ -1,6 +1,6 @@
 
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ReactNode } from "react"
 import Button from "./Button"
 import Link from "next/link"
@@ -35,9 +35,12 @@ const Header = () => {
 }
 
 const HeaderButton = ({children, href} : {children?: ReactNode, href:string}) => {
-	const alreadyInPath = window.location.pathname == href
-	let sizeOfGreenBar = "w-0"
-	if (alreadyInPath) {sizeOfGreenBar = "w-full"}
+	let [sizeOfGreenBar, setSizeOfGreenBar] = useState("w-0")
+		
+	useEffect(() => {
+		const alreadyInPath = window.location.pathname == href
+		if (alreadyInPath) {setSizeOfGreenBar("w-full")}
+	})
 
 	return (
 		<Link href={href} className="relative group flex flex-col items-center justify-center text-black dark:text-white h-full w-[7rem] hover:bg-zinc-200 dark:hover:bg-zinc-700">
