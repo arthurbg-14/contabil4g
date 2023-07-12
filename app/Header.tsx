@@ -29,7 +29,7 @@ const Header = () => {
 				<HeaderButton href="/servicos">SERVIÇOS</HeaderButton>
 			<HeaderButton href="/planos">PLANOS</HeaderButton>
 		</div>
-		<Button>ÁREA DO CLIENTE</Button>
+		<Button ghost>ÁREA DO CLIENTE</Button>
 	</header>
 	)
 }

@@ -1,6 +1,5 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Header from './Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,12 +16,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header/>
-        {children}
-        <button id="wppButton"className="fixed bottom-[1.5rem] right-[1.5rem] w-[3.5rem] h-[3.5rem] rounded-full bg-lime-500
-            hover:transform-gpu hover:scale-[1.3] transition-transform p-2 text-end">
-          <img src="/whatsapp.svg" alt="Whatsapp" />
-        </button>
+        <div className="w-full h-full dark:bg-zinc-800">
+          {children}
+          <button id="wppButton"className="fixed bottom-[1.5rem] right-[1.5rem] w-[3.5rem] h-[3.5rem] rounded-full bg-lime-500
+              hover:transform-gpu hover:scale-[1.3] transition-transform p-2 text-end">
+            <img src="/whatsapp.svg" alt="Whatsapp" />
+          </button>
+        </div>
       </body>
     </html>
   )
