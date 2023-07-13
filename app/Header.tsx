@@ -1,45 +1,33 @@
 
 "use client"
 import { useEffect, useState } from "react"
+import { usePathname } from 'next/navigation'
 import { ReactNode } from "react"
 import Button from "./Button"
 import Link from "next/link"
 
 const Header = () => {
-	let [theme, setTheme] = useState("")
-	
-	const toggleDarkMode = () => {
-		let newTheme = "light"
-		if(theme == "dark"){newTheme = "light"}
-		if(theme == "light"){newTheme = "dark"}
-
-		localStorage.theme = newTheme
-		document.documentElement.className = ''
-		document.documentElement.classList.add(newTheme)
-		setTheme(newTheme)
-	}
-	
 	return (
-	<header className="dark:bg-black w-full h-20 px-4 flex items-center justify-between shadow-md text-sm">
-		<img className="h-full p-4 block dark:hidden" src="/logo.png" onClick={toggleDarkMode}/>
-		<img className="h-full p-4 hidden dark:block" src="/dark_logo.png" onClick={toggleDarkMode}/>
+	<header className="dark:bg-black w-full h-20 px-4 flex items-center justify-evenly shadow-md text-sm">
+		<img className="h-full p-4 block dark:hidden" src="/logo.png"/>
 		<div className="flex flex-row h-full">
 			<HeaderButton href="/">HOME</HeaderButton>
 			<HeaderButton href="/empresa">EMPRESA</HeaderButton>
-				<HeaderButton href="/servicos">SERVIÇOS</HeaderButton>
-			<HeaderButton href="/planos">PLANOS</HeaderButton>
+			<HeaderButton href="/servicos">SERVIÇOS</HeaderButton>
 		</div>
-		<Button ghost>ÁREA DO CLIENTE</Button>
+		<Button>ABRA SUA EMPRESA</Button>
 	</header>
 	)
 }
 
 const HeaderButton = ({children, href} : {children?: ReactNode, href:string}) => {
+	const path = usePathname()
 	let [sizeOfGreenBar, setSizeOfGreenBar] = useState("w-0")
 		
 	useEffect(() => {
-		const alreadyInPath = window.location.pathname == href
+		const alreadyInPath = path == href
 		if (alreadyInPath) {setSizeOfGreenBar("w-full")}
+		else {setSizeOfGreenBar("w-0")}
 	})
 
 	return (
